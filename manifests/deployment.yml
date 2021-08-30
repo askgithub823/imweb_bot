@@ -1,0 +1,19 @@
+apiVersion : apps/v1
+kind: Deployment
+metadata:
+  name: digitamizersaccenturebot 
+spec:
+  replicas: 1
+  selector:
+    matchLabels:
+      app: digitamizersaccenturebot
+  template:
+    metadata:
+      labels:
+        app: digitamizersaccenturebot 
+    spec:
+      containers:
+        - name: digitamizersaccenturebot 
+          image: jenkinsmigration.azurecr.io/digitamizersaccenturebot
+          ports:
+          - containerPort: 80

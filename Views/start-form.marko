@@ -1,0 +1,105 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no" />
+    <title>${data.name}</title>
+    <link rel="stylesheet" href="/public/css/style.css">
+    <link rel="stylesheet" href="/public/css/responsive.css">
+    <link href="https://fonts.googleapis.com/css?family=Roboto:300,400,500,700&display=swap" rel="stylesheet">
+</head>
+
+<body>
+    <div id="preloader">
+        <div class="lds-ripple">
+            <div></div>
+            <div></div>
+        </div>
+    </div>
+    <!--Wrapper Start-->
+    <div class="wrapper">
+        <!--Header Start-->
+        <header class="header">
+            <div class="container">
+                <div class="logo">
+                    <a href="index.html"><img src="/public/images/tech-logo.png" alt="Techforce"></a>
+                </div>
+            </div>
+        </header>
+        <!--Header End-->
+        <div class="content">
+            <div class="container">
+                <h4>${data.name}</h4>
+                <div class="declaration-form">
+                    <form id=data.taskId>
+                        <for|formField| of=data.formFields>
+                            <div class="form-group" key=formField.id>
+                                <if(formField.type != "boolean")>
+                                    <label>${formField.label}</label>
+                                </if>                                
+                                <div class="form-control">
+                                    <if(formField.type == "string")>
+                                        <if(eval(formField.constraints.maxlength) >= 255)>
+                                            <textarea name=formField.id ...formField.constraints></textarea>
+                                        </if>
+                                        <else>
+                                            <input type="text" name=formField.id ...formField.constraints>
+                                        </else>                                             
+                                    </if>
+                                    <else-if(formField.type == "long")>
+                                        <input type="number" name=formField.id ...formField.constraints>
+                                    </else-if>
+                                    <else-if(formField.type == "date")>
+                                        <input type="date" name=formField.id ...formField.constraints>
+                                    </else-if>
+                                    <else-if(formField.type == "boolean")>
+                                        <label class="custom-checkbox customCheckbox">${formField.label}
+                                            <input type="checkbox" checked="checked" name=formField.id value="true">
+                                            <span class="checkmark"></span>
+                                        </label>
+                                    </else-if>
+                                    <else-if(formField.type == "enum")>
+                                        <div class="form-control">
+                                            <for|option, index| of=formField.options>
+                                                <label key=option.id class="custom-checkbox">${option.name}
+                                                    <if(index == 0)>
+                                                        <input type="radio" checked="checked" name=formField.id value=option.id>
+                                                    </if>
+                                                    <else>
+                                                        <input type="radio" name=formField.id value=option.id>
+                                                    </else>
+                                                    <span class="checkmark"></span>
+                                                </label>
+                                            </for>
+                                        </div>
+                                    </else-if>
+                                    <else-if(formField.type == "file")>
+                                        <input id=`${formField.id}-holder` class="f-input" />
+                                        <div class="fileUpload btn btn--browse">
+                                            <span>Choose File</span>
+                                            <input id=formField.id type="file" class="upload" accept="image/png, application/pdf"
+                                                name=formField.id ...formField.constraints />
+                                        </div>
+                                    </else-if>
+                                </div>
+                            </div>
+                        </for>
+                        <div class="form-group text-right submit">
+                            <input type="submit" class="submitBtn" value="Submit" id=data.processId>
+                        </div>
+                    </form>
+                </div>
+            </div>
+        </div>
+    </div>
+    <!--Wrapper End-->
+    <!--JS Files-->
+    <script type="text/javascript">
+        window.formData = ${JSON.stringify(data)}
+    </script>
+    <script src="/public/js/jquery-latest.min.js"></script>
+    <script src="/public/js/custom.js"></script>
+</body>
+
+</html>

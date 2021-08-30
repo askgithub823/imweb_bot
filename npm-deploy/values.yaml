@@ -1,0 +1,13 @@
+# Default values for npm-deploy.
+# This is a YAML-formatted file.
+# Declare variables to be passed into your templates.
+
+app_name: APP_NAME
+
+namespace: NAMESPACE
+
+app_image: DOCKER_SERVER/APP_IMAGE
+
+hostname: HOSTNAME
+
+replicas: REPLICAS

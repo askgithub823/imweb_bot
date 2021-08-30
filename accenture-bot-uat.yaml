@@ -1,0 +1,196 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  annotations:
+    deployment.kubernetes.io/revision: "25"
+    meta.helm.sh/release-name: accenture-bot
+    meta.helm.sh/release-namespace: default
+  generation: 25
+  labels:
+    app.kubernetes.io/instance: accenture-bot
+    app.kubernetes.io/managed-by: Helm
+    app.kubernetes.io/name: accenture-bot
+    app.kubernetes.io/version: 1.16.0
+    helm.sh/chart: accenture-bot-0.1.0
+  name: accenture-bot
+  namespace: default
+  selfLink: /apis/extensions/v1beta1/namespaces/default/deployments/accenture-bot
+spec:
+  progressDeadlineSeconds: 600
+  replicas: 1
+  revisionHistoryLimit: 10
+  selector:
+    matchLabels:
+      app.kubernetes.io/instance: accenture-bot
+      app.kubernetes.io/name: accenture-bot
+  strategy:
+    rollingUpdate:
+      maxSurge: 25%
+      maxUnavailable: 25%
+    type: RollingUpdate
+  template:
+    metadata:
+      creationTimestamp: null
+      labels:
+        app.kubernetes.io/instance: accenture-bot
+        app.kubernetes.io/name: accenture-bot
+    spec:
+      containers:
+      - env:
+        - name: CAMUNDA_URL
+          valueFrom:
+            configMapKeyRef:
+              name: accenture-bot
+              key: camunda-url-bot
+        - name: RASA_URL
+          valueFrom:
+            configMapKeyRef:
+              name: accenture-bot
+              key: rasa-url-bot
+        - name: APP_ID
+          valueFrom:
+            configMapKeyRef:
+              name: accenture-bot
+              key: app-id-bot
+        - name: APP_PASSWORD
+          valueFrom:
+            configMapKeyRef:
+              name: accenture-bot
+              key: app-password-bot
+        - name: INTENT_THRESHOLD
+          valueFrom:
+            configMapKeyRef:
+              name: accenture-bot
+              key: intent-thershold-bot
+        - name: PG_DATABASE
+          valueFrom:
+            configMapKeyRef:
+              name: accenture-bot
+              key: pg-database-bot
+        - name: PG_USERNAME
+          valueFrom:
+            configMapKeyRef:
+              name: accenture-bot
+              key: pg-username-bot
+        - name: PG_PASSWORD
+          valueFrom:
+            configMapKeyRef:
+              name: accenture-bot
+              key: pg-password-bot
+        - name: PG_HOST
+          valueFrom:
+            configMapKeyRef:
+              name: accenture-bot
+              key: pg-host-bot
+        - name: PG_PORT
+          valueFrom:
+            configMapKeyRef:
+              name: accenture-bot
+              key: pg-port-bot
+        - name: DIALECT
+          valueFrom:
+            configMapKeyRef:
+              name: accenture-bot
+              key: dialect-bot
+        - name: SESSION_STORE
+          valueFrom:
+            configMapKeyRef:
+              name: accenture-bot
+              key: session-store-bot
+        - name: SESSION_STORE_HOST
+          valueFrom:
+            configMapKeyRef:
+              name: accenture-bot
+              key: session-store-host-bot
+        - name: SESSION_STORE_MASTERKEY
+          valueFrom:
+            configMapKeyRef:
+              name: accenture-bot
+              key: session-store-masterkey-bot
+        - name: SESSION_STORE_DATABASE
+          valueFrom:
+            configMapKeyRef:
+              name: accenture-bot
+              key: session-store-database-bot
+        - name: SESSION_STORE_COLLECTION
+          valueFrom:
+            configMapKeyRef:
+              name: accenture-bot
+              key: session-store-collection-bot
+        - name: SESSION_GZIP
+          valueFrom:
+            configMapKeyRef:
+              name: accenture-bot
+              key: session-gzip-bot
+        - name: UPLOAD_STORAGE
+          valueFrom:
+            configMapKeyRef:
+              name: accenture-bot
+              key: upload-storage-bot
+        - name: ACCESSKEYID
+          valueFrom:
+            configMapKeyRef:
+              name: accenture-bot
+              key: accesskeyid-bot
+        - name: SECRETACCESSKEY
+          valueFrom:
+            configMapKeyRef:
+              name: accenture-bot
+              key: secretaccesskey-bot
+        - name: BOT_URL
+          valueFrom:
+            configMapKeyRef:
+              name: accenture-bot
+              key: bot-url-bot
+        - name: ROLE_BASED
+          valueFrom:
+            configMapKeyRef:
+              name: accenture-bot
+              key: role-based-bot
+        - name: ROLE_BASED_URL
+          valueFrom:
+            configMapKeyRef:
+              name: accenture-bot
+              key: role-based-url-bot
+        - name: BUCKET_NAME
+          valueFrom:
+            configMapKeyRef:
+              name: accenture-bot
+              key: bucket-name-bot
+        image: 311459039510.dkr.ecr.us-east-1.amazonaws.com/accenture-bot:1.0.38
+        imagePullPolicy: IfNotPresent
+        name: accenture-bot
+        ports:
+        - containerPort: 80
+          name: http
+          protocol: TCP
+        resources: {}
+        securityContext: {}
+        terminationMessagePath: /dev/termination-log
+        terminationMessagePolicy: File
+      dnsPolicy: ClusterFirst
+      restartPolicy: Always
+      schedulerName: default-scheduler
+      securityContext: {}
+      serviceAccount: default
+      serviceAccountName: default
+      terminationGracePeriodSeconds: 30
+status:
+  availableReplicas: 1
+  conditions:
+  - lastTransitionTime: "2020-07-10T13:29:19Z"
+    lastUpdateTime: "2021-05-07T11:01:03Z"
+    message: ReplicaSet "accenture-bot-698d6b9687" has successfully progressed.
+    reason: NewReplicaSetAvailable
+    status: "True"
+    type: Progressing
+  - lastTransitionTime: "2021-06-25T07:06:45Z"
+    lastUpdateTime: "2021-06-25T07:06:45Z"
+    message: Deployment has minimum availability.
+    reason: MinimumReplicasAvailable
+    status: "True"
+    type: Available
+  observedGeneration: 25
+  readyReplicas: 1
+  replicas: 1
+  updatedReplicas: 1

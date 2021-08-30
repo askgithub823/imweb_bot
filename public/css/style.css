@@ -1,0 +1,219 @@
+@charset "utf-8";
+
+html, body {min-height: 100%; }
+
+*, *:before, *:after {-webkit-box-sizing: border-box; -moz-box-sizing: border-box; box-sizing: border-box; -o-box-sizing: border-box; -ms-box-sizing: border-box; }
+img {vertical-align: middle; max-width: 100%; }
+p {font-size: 16px; line-height: 1.38; color: #8c9298; font-weight: 300; margin: 0 0 10px 0; }
+h1, h2, h3, h4, h5, h6 {color: #333333; font-weight: 500; margin: 0; margin-bottom: 10px; }
+
+h1, .h1 {
+    font-size: 40px;
+    line-height: 1.35;
+    color: #000;
+}
+
+h2, .h2 {
+    font-size: 40px;
+    line-height: 1.43;
+}
+
+h3, .h3 {
+    font-size: 24px;
+    line-height: 2.17;
+}
+
+h4, .h4 {
+    font-size: 22px;
+    line-height: 30px;
+}
+
+h5, .h5 {
+       font-size: 18px;
+    line-height: 30px;
+}
+
+h6, .h6 {
+    font-size: 18px;
+}
+
+ul, ol {
+    margin: 0;
+    padding: 0;
+    line-height: normal;
+    list-style-type: none;
+}
+.text-right{text-align: right;}
+ul ul, ol ul, ul ol, ol ol {
+    margin-bottom: 0;
+    line-height: normal;
+}
+
+.list-unstyled {
+    padding-left: 0;
+    list-style: none;
+}
+
+a {
+    color: #02ce9d;
+    text-decoration: none;
+    cursor: pointer;
+    cursor: pointer;
+}
+
+a:hover, a:focus {
+    text-decoration: none;
+    outline: none;
+    color: #ffce00;
+}
+
+button {
+    cursor: pointer;
+}
+
+button:focus, *:focus {
+    outline: none;
+}
+
+html[xmlns] .clearfix {
+    display: block;
+}
+
+.clearfix:after, .row:after {
+    display: block;
+    clear: both;
+    content: "";
+}
+
+/******* ~~ Body CSS ~~ *******/
+
+body {
+    position: relative;
+    margin: 0;
+    font-style: normal;
+    font-stretch: normal;
+    line-height: 1.38;
+    background: #fff;
+    color: #8c9298;
+    font-family: 'Roboto', sans-serif;
+    font-weight: 400;
+    overflow: hidden;
+    overflow-y: auto; font-size: 15px;
+    width: 100%;
+}
+
+.container {
+    margin: 0 auto;
+    padding: 0 15px;
+}
+
+/****Loader*******/
+#preloader {
+    position: fixed;
+    top: 0;
+    right: 0;
+    bottom: 0;
+    left: 0;
+    z-index: 99999;
+    background-color: #02ce9d;
+}
+
+.lds-ripple {
+    display: inline-block;
+    position: relative;
+    width: 64px;
+    height: 64px;
+    top: 50%;
+    left: 50%;
+    -moz-transform: translate(-50%, -50%);
+    -webkit-transform: translate(-50%, -50%);
+    transform: translate(-50%, -50%);
+}
+
+.lds-ripple div {
+    position: absolute;
+    border: 4px solid #fff;
+    opacity: 1;
+    -webkit-border-radius: 50%;
+    border-radius: 50%;
+    -webkit-animation: lds-ripple 1s cubic-bezier(0, 0.2, 0.8, 1) infinite;
+    animation: lds-ripple 1s cubic-bezier(0, 0.2, 0.8, 1) infinite;
+}
+
+.lds-ripple div:nth-child(2) {
+    animation-delay: -0.5s;
+}
+
+@keyframes lds-ripple {
+    0% {
+        top: 28px;
+        left: 28px;
+        width: 0;
+        height: 0;
+        opacity: 1;
+    }
+
+    100% {
+        top: -1px;
+        left: -1px;
+        width: 58px;
+        height: 58px;
+        opacity: 0;
+    }
+}
+
+@-webkit- @keyframes lds-ripple {
+    0% {
+        top: 28px;
+        left: 28px;
+        width: 0;
+        height: 0;
+        opacity: 1;
+    }
+
+    100% {
+        top: -1px;
+        left: -1px;
+        width: 58px;
+        height: 58px;
+        opacity: 0;
+    }
+}
+.header {
+    padding: 15px 0;
+    -webkit-box-shadow: 7px 0px 5px rgba(0,0,0,0.2);box-shadow: 7px 0px 5px rgba(0,0,0,0.2);
+}
+.logo a{width: 180px;display: inline-block}
+
+.content{padding:30px 0 30px;}
+.declaration-form .form-group > label{font-size:15px;display: inline-block;vertical-align: top; width: 40%;margin:0 -2px;}
+.declaration-form .form-group .form-control{display: inline-block;vertical-align: top; width: 60%;margin:0 -2px;}
+.form-control input, .form-control select, .form-control textarea{width: 100%; padding: 0 15px;
+height: 35px;border-radius: 4px;box-shadow: none;border:1px solid #e8e8e8;}
+.form-group{margin-bottom: 12px;}
+.form-control input{-webkit-appearance: none;appearance: none;}
+.form-control textarea{resize: none; height: 60px;padding:15px;}
+.declaration-form {padding: 50px; border: 1px solid #e8e8e8; border-radius: 4px; margin-top: 20px; }
+.declaration-form .form-group .main-col label{display: block;width: 100%;margin-bottom: 10px}
+.declaration-form .form-group .main-col .form-control{width:100%;}
+.declaration-form .form-group .main-col .cols{display: inline-block;vertical-align: top;width: 33.33%;
+padding:0 15px;margin:0 -2px;}
+.row{margin:0 -15px;    }
+.declaration-form .form-group h6{font-weight: 500; font-size: 14px;margin-bottom: 15px;}
+.custom-checkbox {display: block; position: relative; padding-left: 30px; cursor: pointer; font-size: 15px; -webkit-user-select: none; -moz-user-select: none; -ms-user-select: none; user-select: none; display: inline-block; vertical-align: middle; margin-right: 15px; width: 15%; }
+.custom-checkbox input {position: absolute; opacity: 0; cursor: pointer; padding: 0; height: auto; border: none; }
+.checkmark {position: absolute; top: 3px; left: 0; height: 15px; width: 15px; background-color: #eee; border-radius: 50%; }
+.custom-checkbox:hover input ~ .checkmark {background-color: #ccc; }
+.custom-checkbox input:checked ~ .checkmark {background-color: #02ce9d; }
+.checkmark:after {content: ""; position: absolute; display: none; }
+.custom-checkbox input:checked ~ .checkmark:after {display: block; }
+.custom-checkbox .checkmark:after {top: 4px; left: 4px; width: 7px; height: 7px; border-radius: 50%; background: white; }
+.form-group.full label{width: 100%;}
+.customCheckbox .checkmark, .custom-checkbox.customCheckbox .checkmark:after{border-radius: 0;} 
+.fileUpload {position: relative; overflow: hidden; }
+.fileUpload input.upload {position: absolute; top: 0; right: 0; margin: 0; padding: 0; font-size: 20px; cursor: pointer; opacity: 0; -webkit-filter: alpha(opacity=0);filter: alpha(opacity=0); width: auto; height: auto; }
+.btn--browse{border-left: 0; border-radius: 0 2px 2px 0; background-color: #02ce9d; color: black; height: 35px; padding: 2px 5px; color: #fff; line-height: 31px; border-radius: 0 4px 4px 0; font-size: 14px; text-align: center; }
+.form-control .f-input{width: 100%; max-width: 80%; float: left; padding: 0 14px;border-top-right-radius: 0;border-right: none }
+.submitBtn {min-width: 180px; height: 50px; cursor: pointer; background: #02ce9d; border: none; color: #fff; font-weight: 500; font-size: 22px; border-radius: 4px; -webkit-transition: all ease-in-out 0.3s;transition: all ease-in-out 0.3s; }
+.submitBtn:hover, .submitBtn:focus{background: #17b992}
+.submit{margin-top: 50px;}

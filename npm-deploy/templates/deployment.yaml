@@ -1,0 +1,34 @@
+apiVersion: extensions/v1beta1
+kind: Deployment
+metadata:
+    name: {{ .Values.app_name }}
+    namespace: {{ .Values.namespace }}
+spec:
+    replicas: {{ .Values.replicas }}
+    template:
+        metadata:
+            labels:
+                app: {{ .Values.app_name }}_npm
+        spec:
+            containers:
+            - env:
+              - name: REACT_APP_EMCONSOLE_API_URL
+                value: https://emcapiaws.techforce.ai
+              - name: REACT_APP_KEYCLOAK_CLIENT_URL
+                value: https://emcauthaws.techforce.ai/auth/realms/master/protocol/openid-connect/token
+              - name: REACT_APP_KEYCLOAK_CLIENT_USERNAME
+                value: techforce
+              - name: REACT_APP_KEYCLOAK_CLIENT_PASSWORD
+                valueFrom:
+                  secretKeyRef:
+                    name: emconsole-keyclock
+                    key: REACT_APP_KEYCLOAK_CLIENT_PASSWORD
+              - name: REACT_APP_EMCONSOLE_WEBSOCKET_URL
+                value: ws://emcapi.techforce.ai
+              - name: REACT_APP_KEYCLOAK_BASE_URL
+                value: https://emcauthaws.techforce.ai/auth/admin/realms/techforce
+              name: {{ .Values.app_name }}
+              image: {{ .Values.app_image }}
+              ports:
+              - name: http-port
+                containerPort: 8001

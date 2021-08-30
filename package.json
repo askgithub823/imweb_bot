@@ -1,0 +1,43 @@
+{
+  "name": "accenture-bot",
+  "version": "1.0.0-alpha.57",
+  "main": "index.js",
+  "license": "MIT",
+  "scripts": {
+    "start": "node index.js",
+    "start:dev": "node --inspect index.js"
+  },
+  "dependencies": {
+    "@google-cloud/storage": "^2.5.0",
+    "aws-sdk": "^2.974.0",
+    "axios": "^0.18.1",
+    "azure-storage": "^2.10.4",
+    "base64topdf": "^1.1.8",
+    "botbuilder": "^3.30.0",
+    "botbuilder-azure": "^3.1.0",
+    "cheerio": "^1.0.0-rc.10",
+    "dotenv": "^6.2.0",
+    "elasticsearch": "^15.5.0",
+    "form-data": "^2.5.1",
+    "fs": "0.0.1-security",
+    "jsonexport": "^2.4.1",
+    "marko": "^4.23.17",
+    "nedb": "^1.8.0",
+    "node-cron": "^2.0.3",
+    "nodemailer": "^6.6.3",
+    "pdfreader": "^1.2.10",
+    "pg": "^7.12.1",
+    "query-string": "^6.14.1",
+    "randomatic": "^3.1.1",
+    "request": "^2.88.2",
+    "request-promise-native": "^1.0.9",
+    "restify": "^7.2.1",
+    "restify-cors-middleware": "^1.1.1",
+    "sequelize": "^5.22.4",
+    "techforce-botbuilder": "1.0.10",
+    "techforceai-dialog-constructor": "5.0.30-alpha.2",
+    "tedious": "^6.7.1",
+    "uuid": "^3.4.0",
+    "winston": "^3.3.3"
+  }
+}
